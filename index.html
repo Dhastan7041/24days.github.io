@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mickey y Minnie</title>
+    <style>
+        /* Estilos generales */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://marketplace.canva.com/EAGOhRHSpjc/1/0/1131w/canva-borde-de-pagina-floral-rosa-y-azul-swnzOarc6kw.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+            flex-direction: column;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Contenedor principal */
+        .container {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+        }
+
+        /* Estilos para los personajes */
+        .character {
+            position: absolute;
+            bottom: 10%; /* Ajustado para móviles */
+            transition: all 3s linear;
+        }
+
+        /* Mickey inicia en la izquierda */
+        #mickey {
+            left: 5%;
+            width: 120px;
+        }
+
+        /* Minnie inicia en la derecha */
+        #minnie {
+            right: 5%;
+            width: 110px;
+        }
+
+        /* Mensaje con corazón */
+        .heart {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 30px;
+            color: red;
+            transition: transform 0.5s ease-in-out;
+            text-align: center;
+        }
+
+        .heart img {
+            width: 180px;
+        }
+
+        /* Contenedor del botón */
+        .button-container {
+            margin-top: 20px;
+        }
+
+        /* Estilos para el botón */
+        button {
+            padding: 12px 24px;
+            font-size: 20px;
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease-in-out, background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #d43f5e;
+            transform: scale(1.1);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* 📱 Ajustes para pantallas pequeñas */
+        @media (max-width: 600px) {
+            .character {
+                width: 80px; /* Hace a los personajes más pequeños */
+            }
+
+            #mickey {
+                left: 2%; /* Ajuste en móviles */
+            }
+
+            #minnie {
+                right: 2%; /* Ajuste en móviles */
+            }
+
+            .heart img {
+                width: 120px; /* Hace el corazón más pequeño */
+            }
+
+            .heart p {
+                font-size: 18px;
+            }
+
+            button {
+                font-size: 18px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+</head>
+<!--
+    Referiencia de imagenes
+-->
+<body>
+    <div class="container">
+        <img src="https://emdigitizer.com/wp-content/uploads/2023/12/Mickey-Mouse.webp" id="mickey" class="character" width="100" height="150">
+        <img src="https://upload.wikimedia.org/wikipedia/en/0/0f/Minnie_Mouse_Duckipedia.png" id="minnie" class="character" width="100" height="150">
+        <div class="heart" id="heart">
+            <img src="https://i.pinimg.com/474x/9a/e8/a4/9ae8a41cb942faf7ae21e4d30ddfc868.jpg">
+            <p style="color: red; font-size: 22px; font-weight: bold;">Me gustas ❤️ Pronto lo prometido 🥺</p>
+        </div>
+    </div>
+    <div class="button-container">
+        <button id="startButton" onclick="showHeart()">Presióname</button>
+    </div>
+<!-- 
+    Para poder realizar los movimientos 
+-->
+    <script>
+        function showHeart() {
+            document.getElementById("mickey").style.left = "50%";
+            document.getElementById("minnie").style.right = "50%";
+            document.getElementById("startButton").style.display = "none";
+            setTimeout(() => {
+                document.getElementById("heart").style.transform = "translate(-50%, -50%) scale(1)";
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
+
